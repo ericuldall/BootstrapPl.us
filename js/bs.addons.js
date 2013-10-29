@@ -54,7 +54,8 @@ var bs_addons = {
                     body.show();
                     body.animate({
                         height: body_height + 'px',
-                        padding: body_padding,
+                        paddingTop: body_padding + 'px',
+                        paddingBottom: body_padding + 'px'
                     });
                 }
             });
