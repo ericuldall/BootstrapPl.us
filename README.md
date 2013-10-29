@@ -22,4 +22,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Bootstrap Addons
 ### Developed By: Eric Uldall
 
-##### More info coming soon...
+<b>ALL PLUGINS TEST IN</b><br />
+<table>
+ <tr>
+   <td><img src="https://cdn1.iconfinder.com/data/icons/appicns/513/appicns_Chrome.png" style="width: 50px;" /></td>
+   <td><img src="https://cdn1.iconfinder.com/data/icons/appicns/513/472769-appicns_Firefox.png" style="width: 50px;" /></td>
+   <td><img src="https://cdn1.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/safari_512.png" style="width: 50px;" /></td>
+   <td><img src="https://cdn1.iconfinder.com/data/icons/minimalism/512/opera.png" style="width: 50px;" /></td>
+ </tr>
+
+</table>
