@@ -42,6 +42,7 @@ var bs_addons = {
                     paddingTop: '0',
                     paddingBottom: '0'
                 });
+                $(this).removeClass('closed');
             }
             if( body.is(':visible') ){
                 heading.append(collapse_up);
