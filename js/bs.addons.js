@@ -36,7 +36,7 @@ var bs_addons = {
                 body_height = body_height + parseInt(body_top_padding) + parseInt(body_bottom_padding);
                 body.css({'overflow': 'hidden'});
             if( $(this).hasClass('closed') ){
-                $(this).hide();
+                body.hide();
                 body.css({
                     height: '0px',
                     paddingTop: '0',
