@@ -32,7 +32,10 @@ var bs_addons = {
             var body = $(this).find('.panel-body');
             var body_height = body.height();
             var body_padding = body.css('paddingTop');
+                console.log(body_padding);
+                console.log(body_height);
                 body_height = body_height + parseInt(body_padding);
+                console.log(body_height);
                 body.css({'overflow': 'hidden'});
             if( body.is(':visible') ){
                 heading.append(collapse_up);
@@ -53,9 +56,9 @@ var bs_addons = {
                     heading.find('.collapse-handle').removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '').addClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
                     body.show();
                     body.animate({
-                        height: '',
-                        paddingTop: '',
-                        paddingBottom: ''
+                        height: body_height + 'px',
+                        paddingTop: body_padding,
+                        paddingBottom: body_padding
                     });
                 }
             });
