@@ -33,5 +33,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <h4>FIDDLES:</h4>
 <ul>
-<li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/34/" target="_blank">http://jsfiddle.net/rMnVV/34/</a></li>
+<li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/37/" target="_blank">http://jsfiddle.net/rMnVV/37/</a></li>
 </ul>
