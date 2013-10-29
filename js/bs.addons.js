@@ -34,6 +34,14 @@ var bs_addons = {
             var body_padding = body.css('paddingTop');
                 body_height = body_height + (parseInt(body_padding) * 2);
                 body.css({'overflow': 'hidden'});
+            if( $(this).hasClass('closed') ){
+                $(this).hide();
+                body.css({
+                    height: '0px',
+                    paddingTop: '0',
+                    paddingBottom: '0'
+                });
+            }
             if( body.is(':visible') ){
                 heading.append(collapse_up);
             }else{
