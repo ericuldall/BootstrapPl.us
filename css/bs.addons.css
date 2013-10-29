@@ -1,0 +1,53 @@
+/**
+ *
+ * Bootstrap Addons CSS
+ * 
+ * @author Eric Uldall
+ * @version 0.0.1
+ *
+ * @requires bs.addons.js
+ * @requires bootstrap.css
+ * @requires bootstrap.js
+ *
+ */
+
+/* collapsable panel style addons */
+.panel.collapsable .panel-heading .collapse-handle.caret {
+    margin-top: 10px;
+}
+.panel.collapsable .panel-heading .collapse-handle.caret.caret-up {
+    border-top: 0 dotted;
+    border-bottom: 4px solid #000000;
+    content: "";
+}
+.panel.panel-primary .panel-heading .collapse-handle.caret {
+    border-top-color: #fff !important;
+}
+.panel.panel-primary .panel-heading .collapse-handle.caret.caret-up {
+    border-bottom-color: #fff !important;
+}
+.panel.panel-success .panel-heading .collapse-handle.caret {
+    border-top-color: #468847 !important;
+}
+.panel.panel-success .panel-heading .collapse-handle.caret.caret-up {
+    border-bottom-color: #468847 !important;
+}
+.panel.panel-info .panel-heading .collapse-handle.caret {
+    border-top-color: #3a87ad !important;
+}
+.panel.panel-info .panel-heading .collapse-handle.caret.caret-up {
+    border-bottom-color: #3a87ad !important;
+}
+.panel.panel-warning .panel-heading .collapse-handle.caret {
+    border-top-color: #c09853 !important;
+}
+.panel.panel-warning .panel-heading .collapse-handle.caret.caret-up {
+    border-bottom-color: #c09853 !important;
+}
+.panel.panel-danger .panel-heading .collapse-handle.caret {
+    border-top-color: #b94a48 !important;
+}
+.panel.panel-danger .panel-heading .collapse-handle.caret.caret-up {
+    border-bottom-color: #b94a48 !important;
+}
+/* end collapsable panel style addons */
