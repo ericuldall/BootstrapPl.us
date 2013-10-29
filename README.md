@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Bootstrap Addons
 ### Developed By: Eric Uldall
 
-<b>ALL PLUGINS TEST IN</b><br />
+<b>ALL PLUGINS TESTED IN: (currently looking for an IE tester, please message me if you'd like to be involved)</b><br />
 <table>
  <tr>
    <td><img src="https://cdn1.iconfinder.com/data/icons/appicns/513/appicns_Chrome.png" style="width: 50px;" /></td>
