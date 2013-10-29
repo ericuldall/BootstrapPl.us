@@ -31,7 +31,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </table>
 <i>(currently looking for an IE tester, please message me if you'd like to be involved)</i>
 
-<h4>FIDDLES:</h4>
+## FIDDLES
 <ul>
 <li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/37/" target="_blank">http://jsfiddle.net/rMnVV/37/</a></li>
 </ul>
+
+## DOCUMENTATION
+[Wiki](https://github.com/ericuldall/bootstrap-addons/wiki/_pages)
