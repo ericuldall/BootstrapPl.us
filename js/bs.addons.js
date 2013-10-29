@@ -31,8 +31,9 @@ var bs_addons = {
             var heading = $(this).find('.panel-heading');
             var body = $(this).find('.panel-body');
             var body_height = body.height();
-            var body_padding = body.css('paddingTop');
-                body_height = body_height + (parseInt(body_padding) * 2);
+            var body_top_padding = body.css('paddingTop');
+            var body_bottom_padding = body.css('paddingBottom');
+                body_height = body_height + parseInt(body_top_padding) + parseInt(body_bottom_padding);
                 body.css({'overflow': 'hidden'});
             if( $(this).hasClass('closed') ){
                 $(this).hide();
@@ -62,8 +63,8 @@ var bs_addons = {
                     body.show();
                     body.animate({
                         height: body_height + 'px',
-                        paddingTop: body_padding,
-                        paddingBottom: body_padding
+                        paddingTop: body_top_padding,
+                        paddingBottom: body_bottom_padding
                     });
                 }
             });
