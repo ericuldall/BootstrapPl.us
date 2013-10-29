@@ -32,3 +32,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  </tr>
 </table>
 <i>(currently looking for an IE tester, please message me if you'd like to be involved)</i>
+
+<h4>FIDDLES:</h4>
+<ul>
+<li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/34/" target="_blank">http://jsfiddle.net/rMnVV/34/</a></li>
+</ul>
