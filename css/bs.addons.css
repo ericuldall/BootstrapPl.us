@@ -17,8 +17,13 @@
 }
 .panel.collapsable .panel-heading .collapse-handle {
     position: absolute;
-    top: 15px;
     right: 15px;
+}
+.panel.collapsable .panel-heading .collapse-handle.caret {
+    top: 15px;
+}
+.panel.collapsable .panel-heading .collapse-handle.glyphicon {
+    top: 10px;
 }
 .panel.collapsable .panel-heading .collapse-handle.caret.caret-up {
     border-top: 0 dotted;
