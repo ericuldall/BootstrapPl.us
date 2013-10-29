@@ -32,10 +32,7 @@ var bs_addons = {
             var body = $(this).find('.panel-body');
             var body_height = body.height();
             var body_padding = body.css('paddingTop');
-                console.log(body_padding);
-                console.log(body_height);
-                body_height = body_height + parseInt(body_padding);
-                console.log(body_height);
+                body_height = body_height + (parseInt(body_padding) * 2);
                 body.css({'overflow': 'hidden'});
             if( body.is(':visible') ){
                 heading.append(collapse_up);
@@ -64,7 +61,6 @@ var bs_addons = {
             });
         });
         if( this.collapsePanelsInit === false ){
-            console.log('modal check once on init');
             $('.modal').on('shown.bs.modal', function () {
                 bs_addons.collapsePanels();
             });
