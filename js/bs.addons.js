@@ -53,9 +53,9 @@ var bs_addons = {
                     heading.find('.collapse-handle').removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '').addClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
                     body.show();
                     body.animate({
-                        height: body_height + 'px',
-                        paddingTop: body_padding + 'px',
-                        paddingBottom: body_padding + 'px'
+                        height: '',
+                        paddingTop: '',
+                        paddingBottom: ''
                     });
                 }
             });
