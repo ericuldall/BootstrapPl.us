@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Bootstrap Addons
 ### Developed By: Eric Uldall
 
-<b>ALL PLUGINS TESTED IN: (currently looking for an IE tester, please message me if you'd like to be involved)</b><br />
+<b>ALL PLUGINS TESTED IN:</b>
 <table>
  <tr>
    <td><img src="https://cdn1.iconfinder.com/data/icons/appicns/513/appicns_Chrome.png" style="width: 50px;" /></td>
@@ -30,5 +30,5 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    <td><img src="https://cdn1.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/safari_512.png" style="width: 50px;" /></td>
    <td><img src="https://cdn1.iconfinder.com/data/icons/minimalism/512/opera.png" style="width: 50px;" /></td>
  </tr>
-
 </table>
+<i>(currently looking for an IE tester, please message me if you'd like to be involved)</i>
