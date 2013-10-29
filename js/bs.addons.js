@@ -23,26 +23,27 @@ var bs_addons = {
         var collapse_up = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-up' : 'caret caret-up') + '"></span>';
         //collapsable panel
         $('.panel.collapsable').each(function(){
+            var panel = $(this);
             if( $(this).data('is-collapsable') == true ){
                 return;
             }else{
                 $(this).attr('data-is-collapsable', 'true');
             }
-            var heading = $(this).find('.panel-heading');
-            var body = $(this).find('.panel-body');
+            var heading = panel.find('.panel-heading');
+            var body = panel.find('.panel-body');
             var body_height = body.height();
             var body_top_padding = body.css('paddingTop');
             var body_bottom_padding = body.css('paddingBottom');
                 body_height = body_height + parseInt(body_top_padding) + parseInt(body_bottom_padding);
                 body.css({'overflow': 'hidden'});
-            if( $(this).hasClass('closed') ){
+            if( panel.hasClass('closed') ){
                 body.hide();
                 body.css({
                     height: '0px',
                     paddingTop: '0',
                     paddingBottom: '0'
                 });
-                $(this).removeClass('closed');
+                panel.removeClass('closed');
             }
             if( body.is(':visible') ){
                 heading.append(collapse_up);
@@ -51,6 +52,7 @@ var bs_addons = {
             }
             heading.on('click', function(){
                 if( body.is(':visible') ){
+                    panel.trigger('hide.bs.collapse');
                     heading.find('.collapse-handle').removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up').addClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
                     body.animate({
                         height: '0px',
@@ -58,14 +60,18 @@ var bs_addons = {
                         paddingBottom: '0'
                     }, function(){
                         $(this).hide();
+                        panel.trigger('hidden.bs.collapse');
                     });
                 }else{
+                    panel.trigger('show.bs.collapse');
                     heading.find('.collapse-handle').removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '').addClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
                     body.show();
                     body.animate({
                         height: body_height + 'px',
                         paddingTop: body_top_padding,
                         paddingBottom: body_bottom_padding
+                    }, function(){
+                        panel.trigger('shown.bs.collapse');
                     });
                 }
             });
