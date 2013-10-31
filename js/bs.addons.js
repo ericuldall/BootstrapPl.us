@@ -56,13 +56,13 @@ var bs_addons = {
                 bs_addons.collapsePanels();
             });
             $('.panel-collapse').on('show.bs.collapse', function(){
-                $(this).closest('.panel-heading')
+                $(this).prev()
                        .find('.collapse-handle')
                        .removeClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
                        .addClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
             });
             $('.panel-collapse').on('hide.bs.collapse', function(){
-                $(this).closest('.panel-heading')
+                $(this).prev()
                        .find('.collapse-handle')
                        .removeClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
                        .addClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
