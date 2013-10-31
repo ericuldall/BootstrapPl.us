@@ -51,7 +51,7 @@ var bs_addons = {
             if( $(this).hasClass('closed') ){
                 $(this).collapse('toggle');
             }
-            $this.incrementCollapsePanelKey();
+            bs_addons.incrementCollapsePanelKey();
         });
         if( this.collapsePanelsInit === false ){
             $('.modal').on('shown.bs.modal', function () {
