@@ -60,14 +60,14 @@ var bs_addons = {
             $('div[id^="panelBody"]').on('show.bs.collapse', function(){
                 $(this).closest('.panel-heading')
                        .find('.collapse-handle')
-                       .removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
-                       .addClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
+                       .removeClass(this.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
+                       .addClass(this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
             });
             $('div[id^="panelBody"]').on('hide.bs.collapse', function(){
                 $(this).closest('.panel-heading')
                        .find('.collapse-handle')
-                       .removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
-                       .addClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
+                       .removeClass(this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
+                       .addClass(this.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
             });
             this.collapsePanelsInit = true;
         }
