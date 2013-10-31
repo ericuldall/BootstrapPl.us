@@ -22,7 +22,7 @@ var bs_addons = {
     incrementCollapsePanelsKey: function(){
         collapsePanelsKey++;
     },
-    getCollapsePanelsKey: function(){
+    getCollapsePanelKey: function(){
         return this.collapsePanelsKey;
     },
     collapsePanels: function(){
