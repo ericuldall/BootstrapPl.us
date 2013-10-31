@@ -38,8 +38,8 @@ var bs_addons = {
             }
             heading.attr('data-toggle', 'collapse');
             heading.attr('data-target', '#panelBody'+key);
-            body.insertBefore('<div id="panelBody'+key+'" class="panel-collapse collapse'+(body.hasClass('closed') ? '' : ' in' )+'">');
-            body.insertAfter('</div>');
+            $('<div id="panelBody'+key+'" class="panel-collapse collapse'+(body.hasClass('closed') ? '' : ' in' )+'">').insertBefore(body);
+            $('</div>').insertAfter(body);
         });
         if( this.collapsePanelsInit === false ){
             $('.modal').on('shown.bs.modal', function () {
