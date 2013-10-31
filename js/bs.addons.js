@@ -8,6 +8,7 @@
  * @requires bs.addons.css
  * @requires bootstrap.css
  * @requires bootstrap.js
+ * @requires jquery 1.8+
  *
  */
 var bs_addons = {
@@ -45,9 +46,12 @@ var bs_addons = {
             }
             heading.attr('data-toggle', 'collapse');
             heading.attr('data-target', '#panelBody' + $this.getCollapsePanelKey());
-            $('<div id="panelBody' + $this.getCollapsePanelKey() + '" class="panel-collapse collapse'+(body.hasClass('closed') ? '' : ' in' )+'"></div>').insertBefore(body);
+            $('<div id="panelBody' + $this.getCollapsePanelKey() + '" class="panel-collapse collapse"></div>').insertBefore(body);
             $('#panelBody' + $this.getCollapsePanelKey()).html(body.clone());
             body.remove();
+            if( $(this).hasClass('closed') ){
+                $(this).collapse('toggle');
+            }
             $this.incrementCollapsePanelKey();
         });
         if( this.collapsePanelsInit === false ){
