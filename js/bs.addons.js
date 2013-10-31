@@ -40,7 +40,7 @@ var bs_addons = {
             var body = panel.find('.panel-body');
             heading.attr('data-toggle', 'collapse');
             heading.attr('data-target', '#panelBody' + bs_addons.getCollapsePanelKey());
-            $('<div id="panelBody' + bs_addons.getCollapsePanelKey() + '" class="panel-collapse'+($(this).hasClass('closed') ? ' collapse' : '')+'"></div>').insertBefore(body);
+            $('<div id="panelBody' + bs_addons.getCollapsePanelKey() + '" class="panel-collapse '+($(this).hasClass('closed') ? 'collapse' : 'in')+'"></div>').insertBefore(body);
             $('#panelBody' + bs_addons.getCollapsePanelKey()).html(body.clone());
             body.remove();
             if( $(this).hasClass('closed') ){
