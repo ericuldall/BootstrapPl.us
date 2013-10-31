@@ -26,7 +26,6 @@ var bs_addons = {
         return this.collapsePanelsKey;
     },
     collapsePanels: function(){
-        var $this = this;
         var collapse_down = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-down' : 'caret') + '"></span>';
         var collapse_up = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-up' : 'caret caret-up') + '"></span>';
         //collapsable panel
@@ -45,9 +44,9 @@ var bs_addons = {
                 heading.append(collapse_down);
             }
             heading.attr('data-toggle', 'collapse');
-            heading.attr('data-target', '#panelBody' + $this.getCollapsePanelKey());
-            $('<div id="panelBody' + $this.getCollapsePanelKey() + '" class="panel-collapse collapse"></div>').insertBefore(body);
-            $('#panelBody' + $this.getCollapsePanelKey()).html(body.clone());
+            heading.attr('data-target', '#panelBody' + bs_addons.getCollapsePanelKey());
+            $('<div id="panelBody' + bs_addons.getCollapsePanelKey() + '" class="panel-collapse collapse"></div>').insertBefore(body);
+            $('#panelBody' + bs_addons.getCollapsePanelKey()).html(body.clone());
             body.remove();
             if( $(this).hasClass('closed') ){
                 $(this).collapse('toggle');
