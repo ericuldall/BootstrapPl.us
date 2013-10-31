@@ -14,20 +14,20 @@
 var bs_addons = {
     glyphicons: false,
     hasGlyphicons: function(bool){
-        if( bool !== undefined ) this.glyphicons = bool;
-        return this.glyphicons;
+        if( bool !== undefined ) bs_addons.glyphicons = bool;
+        return bs_addons.glyphicons;
     },
     collapsePanelsInit: false,
-    collapsePanelsKey: 0,
+    collapsePanelKey: 0,
     incrementCollapsePanelKey: function(){
-        this.collapsePanelsKey++;
+        bs_addons.collapsePanelKey++;
     },
     getCollapsePanelKey: function(){
-        return this.collapsePanelsKey;
+        return bs_addons.collapsePanelKey;
     },
     collapsePanels: function(){
-        var collapse_down = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-down' : 'caret') + '"></span>';
-        var collapse_up = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-up' : 'caret caret-up') + '"></span>';
+        var collapse_down = '<span class="pull-right collapse-handle ' + (bs_addons.hasGlyphicons() ? 'glyphicon glyphicon-collapse-down' : 'caret') + '"></span>';
+        var collapse_up = '<span class="pull-right collapse-handle ' + (bs_addons.hasGlyphicons() ? 'glyphicon glyphicon-collapse-up' : 'caret caret-up') + '"></span>';
         //collapsable panel
         $('.panel.collapsable').each(function(){
             var panel = $(this);
@@ -38,11 +38,6 @@ var bs_addons = {
             }
             var heading = panel.find('.panel-heading');
             var body = panel.find('.panel-body');
-            if( body.is(':visible') ){
-                heading.append(collapse_up);
-            }else{
-                heading.append(collapse_down);
-            }
             heading.attr('data-toggle', 'collapse');
             heading.attr('data-target', '#panelBody' + bs_addons.getCollapsePanelKey());
             $('<div id="panelBody' + bs_addons.getCollapsePanelKey() + '" class="panel-collapse collapse"></div>').insertBefore(body);
@@ -50,26 +45,29 @@ var bs_addons = {
             body.remove();
             if( $(this).hasClass('closed') ){
                 $(this).collapse('toggle');
+                heading.append(collapse_down);
+            }else{
+                heading.append(collapse_up);
             }
             bs_addons.incrementCollapsePanelKey();
         });
-        if( this.collapsePanelsInit === false ){
+        if( bs_addons.collapsePanelsInit === false ){
             $('.modal').on('shown.bs.modal', function () {
                 bs_addons.collapsePanels();
             });
             $('div[id^="panelBody"]').on('show.bs.collapse', function(){
                 $(this).closest('.panel-heading')
                        .find('.collapse-handle')
-                       .removeClass(this.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
-                       .addClass(this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
+                       .removeClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
+                       .addClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
             });
             $('div[id^="panelBody"]').on('hide.bs.collapse', function(){
                 $(this).closest('.panel-heading')
                        .find('.collapse-handle')
-                       .removeClass(this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
-                       .addClass(this.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
+                       .removeClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
+                       .addClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
             });
-            this.collapsePanelsInit = true;
+            bs_addons.collapsePanelsInit = true;
         }
     }
 };
