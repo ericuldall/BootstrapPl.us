@@ -17,12 +17,19 @@ var bs_addons = {
         return this.glyphicons;
     },
     collapsePanelsInit: false,
+    collapsePanelsKey: 0,
+    incrementCollapsePanelsKey: function(){
+        collapsePanelsKey++;
+    },
+    getCollapsePanelsKey: function(){
+        return this.collapsePanelsKey;
+    },
     collapsePanels: function(){
         var $this = this;
         var collapse_down = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-down' : 'caret') + '"></span>';
         var collapse_up = '<span class="pull-right collapse-handle ' + (this.hasGlyphicons() ? 'glyphicon glyphicon-collapse-up' : 'caret caret-up') + '"></span>';
         //collapsable panel
-        $('.panel.collapsable').each(function(key, val){
+        $('.panel.collapsable').each(function(){
             var panel = $(this);
             if( $(this).data('is-collapsable') == true ){
                 return;
@@ -37,14 +44,27 @@ var bs_addons = {
                 heading.append(collapse_down);
             }
             heading.attr('data-toggle', 'collapse');
-            heading.attr('data-target', '#panelBody'+key);
-            $('<div id="panelBody'+key+'" class="panel-collapse collapse'+(body.hasClass('closed') ? '' : ' in' )+'"></div>').insertBefore(body);
-            $('#panelBody'+key).html(body.clone());
+            heading.attr('data-target', '#panelBody' + $this.getCollapsePanelKey());
+            $('<div id="panelBody' + $this.getCollapsePanelKey() + '" class="panel-collapse collapse'+(body.hasClass('closed') ? '' : ' in' )+'"></div>').insertBefore(body);
+            $('#panelBody' + $this.getCollapsePanelKey()).html(body.clone());
             body.remove();
+            $this.incrementCollapsePanelKey();
         });
         if( this.collapsePanelsInit === false ){
             $('.modal').on('shown.bs.modal', function () {
                 bs_addons.collapsePanels();
+            });
+            $('div[id^="panelBody"]').on('show.bs.collapse', function(){
+                $(this).closest('.panel-heading')
+                       .find('.collapse-handle')
+                       .removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
+                       .addClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
+            });
+            $('div[id^="panelBody"]').on('hide.bs.collapse', function(){
+                $(this).closest('.panel-heading')
+                       .find('.collapse-handle')
+                       .removeClass($this.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
+                       .addClass($this.hasGlyphicons() ? 'glyphicon-collapse-down' : '');
             });
             this.collapsePanelsInit = true;
         }
