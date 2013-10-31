@@ -55,13 +55,13 @@ var bs_addons = {
             $('.modal').on('shown.bs.modal', function () {
                 bs_addons.collapsePanels();
             });
-            $('div[id^="panelBody"]').on('show.bs.collapse', function(){
+            $('.panel-collapse').on('show.bs.collapse', function(){
                 $(this).closest('.panel-heading')
                        .find('.collapse-handle')
                        .removeClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-down' : '')
                        .addClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up');
             });
-            $('div[id^="panelBody"]').on('hide.bs.collapse', function(){
+            $('.panel-collapse').on('hide.bs.collapse', function(){
                 $(this).closest('.panel-heading')
                        .find('.collapse-handle')
                        .removeClass(bs_addons.hasGlyphicons() ? 'glyphicon-collapse-up' : 'caret-up')
