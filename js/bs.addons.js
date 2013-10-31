@@ -20,7 +20,7 @@ var bs_addons = {
     collapsePanelsInit: false,
     collapsePanelsKey: 0,
     incrementCollapsePanelKey: function(){
-        collapsePanelsKey++;
+        this.collapsePanelsKey++;
     },
     getCollapsePanelKey: function(){
         return this.collapsePanelsKey;
