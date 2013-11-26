@@ -89,6 +89,13 @@ var bootstrappl = {};
         };
         $this.init();
     };
-    //emit ready event
-    $(document).trigger('bootstrappl.us.ready');
+    //check if #document is loaded
+    $(document).ready(function(){
+        //emit ready event
+        $.event.trigger({
+            type: "bootstrappl.us.ready",
+            message: "BootstrapPl.us is ready!",
+            time: new Date()
+        });
+    });
 })(jQuery);
