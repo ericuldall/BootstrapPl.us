@@ -13,7 +13,7 @@
 
 ## FIDDLES
 <ul>
-<li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/42/" target="_blank">http://jsfiddle.net/rMnVV/42/</a></li>
+<li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/43/" target="_blank">http://jsfiddle.net/rMnVV/43/</a></li>
 </ul>
 
 ## DOCUMENTATION
