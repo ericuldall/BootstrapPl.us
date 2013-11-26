@@ -11,8 +11,10 @@
  * @requires jquery 1.8+
  *
  */
+//define global object
 var bootstrappl = {};
 (function($){
+    //set golbal configs
     bootstrappl.us = {
         glyphicons: false,
         hasGlyphicons: function(bool){
@@ -21,8 +23,17 @@ var bootstrappl = {};
         }
     };
 
+    /**
+    *
+    * BEGIN PLUGINS
+    *
+    */
+
+    //Collapsable Panels
     $.fn.collapsePanel = function(){
+        //define instance for use in child functions
         var $this = $(this);
+        //define properties and methods
         $this.collapsePanelsInit = false;
         $this.collapsePanelKey = 0;
         $this.incrementCollapsePanelKey = function(){
@@ -31,6 +42,7 @@ var bootstrappl = {};
         $this.getCollapsePanelKey = function(){
             return $this.collapsePanelKey;
         };
+        //initialize the plugin
         $this.init = function(options){
             var collapse_down = '<span class="pull-right collapse-handle ' + (bootstrappl.us.hasGlyphicons() ? 'glyphicon glyphicon-collapse-down' : 'caret') + '"></span>';
             var collapse_up = '<span class="pull-right collapse-handle ' + (bootstrappl.us.hasGlyphicons() ? 'glyphicon glyphicon-collapse-up' : 'caret caret-up') + '"></span>';
@@ -77,4 +89,6 @@ var bootstrappl = {};
         };
         $this.init();
     };
+    //emit ready event
+    $(document).trigger('bootstrappl.us.ready');
 })(jQuery);
