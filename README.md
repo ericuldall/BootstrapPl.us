@@ -17,7 +17,7 @@
 </ul>
 
 ## DOCUMENTATION
-[Wiki](https://github.com/ericuldall/bootstrap-addons/wiki/_pages)
+[Bootstrappl.us Official](http://bootstrappl.us)
 
 ## COPYRIGHT + TERMS
 The MIT License (MIT)
