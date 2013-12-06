@@ -70,7 +70,7 @@ var bootstrappl = {};
             });
             if( $this.collapsePanelsInit === false ){
                 $('.modal').on('shown.bs.modal', function () {
-                    $this.collapsePanel();
+                    $($this.selector).collapsePanel();
                 });
                 $('.panel-collapse').on('show.bs.collapse', function(){
                     $(this).prev()
