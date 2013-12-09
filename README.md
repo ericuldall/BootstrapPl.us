@@ -15,6 +15,7 @@
 <ul>
 <li><b>Collapse Panels</b> - <a href="http://jsfiddle.net/rMnVV/43/" target="_blank">http://jsfiddle.net/rMnVV/43/</a></li>
 <li><b>Progress Bar</b> - <a href="http://jsfiddle.net/rMnVV/44/" target="_blank">http://jsfiddle.net/rMnVV/44/</a></li>
+<li><b>Progress Bar Advanced</b> - <a href="http://jsfiddle.net/rMnVV/46/" target="_blank">http://jsfiddle.net/rMnVV/44/</a></li>
 </ul>
 
 ## DOCUMENTATION
