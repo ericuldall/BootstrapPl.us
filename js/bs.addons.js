@@ -20,7 +20,35 @@ var bootstrappl = {};
         hasGlyphicons: function(bool){
             if( bool !== undefined ) bootstrappl.us.glyphicons = bool;
             return bootstrappl.us.glyphicons;
+        },
+        getClosestArrayKey: function(stack, val){
+            var closest=new Object();
+            for(var i in stack){
+                if(typeof closest.diff=='undefined'){
+                    closest.diff=Math.abs(val-i);
+                    closest.val=[i];
+                }else{
+                    if(closest.diff==Math.abs(val-i)){
+                        closest.val.push(i);
+                    }else if(closest.diff>Math.abs(val-i)){
+                        closest.diff=Math.abs(val-i);
+                        closest.val=[i];
+                    }
+                }
+            }
+
+            return closest;
+        },
+        deleteArrayKeys: function(stack, val, operator){
+            for(var i in stack){
+                if(eval(i + ' ' + operator + ' ' + val)){
+                    delete stack[i];
+                }
+            }
+
+            return stack;
         }
+        
     };
 
     /**
@@ -88,6 +116,147 @@ var bootstrappl = {};
             }
         };
         $this.init();
+    };
+
+    //Progress Bar Control
+    $.fn.progressBar = function(options){
+        //define instance for use in child functions
+        var $this = $(this);
+        //set default options
+        $this.defaults = {
+            bar: {
+                style: 'primary',
+                type: 'increment',
+                striped: false,
+                animated: false,
+                min_pct: 0,
+                max_pct: 100,
+                pct: 0,
+            },
+            checkpoint: Array,
+            onInit: function(){},
+            beforeUpdate: function(){},
+            onUpdate: function(){},
+            onMin: function(){},
+            onMax: function(){}
+        };
+        //extend options
+        $this.options = $.extend(true, {}, $this.defaults, options);
+        $this.last_pct = $this.options.bar.pct;
+        //process options
+        $this.processOptions =  function(update){
+            $this.children('.progress-bar')
+                 .removeClass('progress-bar-primary progress-bar-info progress-bar-warning progress-bar-danger progress-bar-success')
+                 .addClass('progress-bar-'+$this.options.bar.style)
+                 .attr({
+                    "aria-valuemin": $this.options.bar.min_pct,
+                    "aria-valuemax": $this.options.bar.max_pct,
+                 });
+            if(update){
+                var last_pct;
+                //checks for incrementing progress
+                if( $this.options.bar.type == 'increment' && $this.last_pct != $this.options.bar.pct ){
+                    if( $this.options.bar.pct >= $this.options.bar.max_pct ){
+                        $this.children('.progress-bar')
+                             .attr({
+                                "aria-valuenow": $this.options.bar.max_pct
+                             })
+                             .css({
+                                "width": $this.options.bar.max_pct+'%'
+                             })
+                             .children('.sr-only')
+                             .html($this.options.bar.max_pct+'% Complete');
+                        last_pct = $this.options.bar.max_pct;
+                    }else{
+                        $this.children('.progress-bar')
+                             .attr({
+                                "aria-valuenow": $this.options.bar.pct
+                             })
+                             .css({
+                                "width": $this.options.bar.pct+'%'
+                             })
+                             .children('.sr-only')
+                             .html($this.options.bar.pct+'% Complete');
+                        last_pct = $this.options.bar.pct;
+                    }
+                    var checkpoint_key = bootstrappl.us.getClosestArrayKey($this.options.checkpoint, last_pct);
+                        checkpoint_key = checkpoint_key.val;
+                    if( checkpoint_key <= last_pct ){
+                        $this.options.checkpoint[checkpoint_key]();
+                        bootstrappl.us.deleteArrayKeys($this.options.checkpoint, checkpoint_key, '<=');
+                    }
+                }
+                //checks for decrementing progress
+                else if( $this.options.bar.type == 'decrement' && $this.last_pct != $this.options.bar.pct ){
+                    if( $this.options.bar.pct <= $this.options.bar.min_pct ){
+                        $this.children('.progress-bar')
+                             .attr({
+                                "aria-valuenow": $this.options.bar.min_pct
+                             })
+                             .css({
+                                "width": $this.options.bar.min_pct+'%'
+                             })
+                             .children('.sr-only')
+                             .html($this.options.bar.min_pct+'% Complete');
+                        last_pct = $this.options.bar.min_pct;
+                    }else{
+                        $this.children('.progress-bar')
+                             .attr({
+                                "aria-valuenow": $this.options.bar.pct
+                             })
+                             .css({
+                                "width": $this.options.bar.pct+'%'
+                             })
+                             .children('.sr-only')
+                             .html($this.options.bar.pct+'% Complete');
+                        last_pct = $this.options.bar.pct;
+                    }
+                    var checkpoint_key = bootstrappl.us.getClosestArrayKey($this.options.checkpoint, last_pct);
+                        checkpoint_key = checkpoint_key.val;
+                    if( checkpoint_key >= last_pct ){
+                        $this.options.checkpoint[checkpoint_key]();
+                        bootstrappl.us.deleteArrayKeys($this.options.checkpoint, checkpoint_key, '>=');
+                    }
+                }
+                if( last_pct == $this.options.bar.max_pct ){ $this.options.onMax(); }
+                if( last_pct == $this.options.bar.min_pct ){ $this.options.onMin(); }
+            }else{
+                $this.children('.progress-bar')
+                     .attr({
+                        "aria-valuenow": $this.options.bar.pct
+                     })
+                     .css({
+                        "width": $this.options.bar.pct+'%'
+                     })
+                     .children('.sr-only')
+                     .html($this.options.bar.pct+'% Complete');
+            }
+            if( $this.options.bar.striped ){
+                $this.addClass('progress-striped');
+            }else{
+                $this.removeClass('progress-striped');
+            }
+            if( $this.options.bar.animated ){
+                $this.addClass('progress-striped active');
+            }else{
+                $this.removeClass('active');
+            }
+        };
+        //update method
+        $this.update = function(updates){
+            $this.options.beforeUpdate();
+            $this.options = $.extend(true, {}, $this.options, updates);
+            $this.processOptions(true);
+            $this.options.onUpdate();
+        };
+        //initialize the plugin
+        $this.init = function(){
+            $this.processOptions(false);
+            $this.options.onInit();
+        };
+        $this.init();
+
+        return $this;
     };
     //check if #document is loaded
     $(document).ready(function(){
